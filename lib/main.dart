@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/splash.dart';
 import 'dart:async';
+
+import 'MainScreens/SplashScreen/splash.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,6 +9,9 @@ Color mainheader = Colors.blue;
 Color subheader = Colors.lightBlue;
 Color sub_white = Color(0xFFf4f4f4);
 Color golden = Color(0xFFCFB53B);
+
+String pageDirect = "";
+int selectedPage = 0;
 
 class MyApp extends StatelessWidget {
 

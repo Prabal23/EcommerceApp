@@ -1,9 +1,8 @@
+import 'package:ecommerce_app/MainScreens/Homepage/homepage.dart';
 import 'package:ecommerce_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
-import 'package:ecommerce_app/newpage.dart';
 import 'dart:async';
-//import 'package:login_page/login_page.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -22,16 +21,6 @@ class SplashScreenState extends State<SplashScreen>
     super.initState();
 
     loadData();
-    // controller =
-    //     AnimationController(duration: const Duration(seconds: 0), vsync: this);
-    // animation = Tween<double>(begin: 0, end: 250).animate(controller)
-    //   ..addListener(() {
-    //     setState(() {
-    //       loadData();
-    //       // The state that has changed here is the animation object’s value.
-    //     });
-    //   });
-    // controller.forward();
   }
 
   Future<Timer> loadData() async {
@@ -40,7 +29,7 @@ class SplashScreenState extends State<SplashScreen>
 
   onDoneLoading() async {
     Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (context) => NewPage()));
+        .pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
   }
 
   @override
@@ -53,10 +42,8 @@ class SplashScreenState extends State<SplashScreen>
           children: <Widget>[
             CircleAvatar(
               backgroundColor: Colors.transparent,
-              //backgroundImage: ExactAssetImage('assets/logo.png'),
               minRadius: 70,
               maxRadius: 70,
-              //radius: 68.0,
               child: Image.asset('assets/logo.png'),
             ),
           ],
@@ -73,8 +60,6 @@ class SplashScreenState extends State<SplashScreen>
             child: Column(
               children: <Widget>[
                 Container(
-                    //height: animation.value,
-                    //width: animation.value,
                     child: logo),
                     
                 Row(
@@ -84,35 +69,11 @@ class SplashScreenState extends State<SplashScreen>
                     Text(" App", style: TextStyle(fontSize: 17))
                   ],
                 ),
-                // SizedBox(height: 15),
-                // new CircularProgressIndicator(
-                //   valueColor:
-                //       AlwaysStoppedAnimation<Color>(subheader),
-                // ),
-                // SizedBox(height: 20),
               ],
             ),
           ),
         ),
-
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(
-        //     image: AssetImage('assets/logo.png'),
-        //     fit: BoxFit.cover
-        //   ) ,
-        // ),
-        // child: Center(
-        //   child: CircularProgressIndicator(
-        //     valueColor: AlwaysStoppedAnimation<Color>(Colors.lightBlueAccent),
-        //   ),
-        // ),
       ),
     );
   }
-
-  // @override
-  // void dispose() {
-  //   controller.dispose();
-  //   super.dispose();
-  // }
 }

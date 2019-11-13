@@ -26,7 +26,8 @@ dependencies:
   carousel_pro: ^0.0.13
   carousel_slider:
   intl:
-  photo_view:
+  image_picker: ^0.4.10
+  #photo_view:
 
 dev_dependencies:
   flutter_test:

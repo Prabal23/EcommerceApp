@@ -1,21 +1,13 @@
 import 'dart:ui' as prefix0;
 
-import 'package:ecommerce_app/cart.dart';
-import 'package:ecommerce_app/profile.dart';
-import 'package:ecommerce_app/search.dart';
-import 'package:ecommerce_app/tnc.dart';
+import 'package:ecommerce_app/MainScreens/CheckoutPage/checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import './main.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:photo_view/photo_view.dart';
-import 'category.dart';
-import 'favourite.dart';
-import 'newpage.dart';
-import 'notifications.dart';
-import 'orders.dart';
+
+import '../../main.dart';
 
 class DetailsPage extends StatefulWidget {
   @override
@@ -33,7 +25,8 @@ class DetailsPageState extends State<DetailsPage>
   String _debugLabelString = "", review = '', _ratingStatus = '';
   bool _requireConsent = false;
   CarouselSlider carouselSlider;
-  int _current = 0;
+  int _current = 0, num = 0;
+  double tk = 0.0;
   List imgList = [
     "assets/tshirt.png",
     "assets/shirt.jpg",
@@ -81,213 +74,7 @@ class DetailsPageState extends State<DetailsPage>
 
   @override
   Widget build(BuildContext context) {
-    Drawer drawer = new Drawer(
-      child: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            child: new Wrap(
-              children: <Widget>[
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                              padding: EdgeInsets.all(1.0),
-                              child: CircleAvatar(
-                                radius: 30.0,
-                                backgroundColor: Colors.transparent,
-                                backgroundImage: AssetImage('assets/logo.png'),
-                              ),
-                              decoration: new BoxDecoration(
-                                color: Colors.grey, // border color
-                                shape: BoxShape.circle,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  "Hello,",
-                                  style: TextStyle(
-                                      fontSize: 15, color: Colors.black38),
-                                ),
-                                Text(
-                                  "John Smith",
-                                  style: TextStyle(fontSize: 17),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                          margin: EdgeInsets.only(right: 30),
-                          child: Icon(Icons.chevron_right)),
-                    ],
-                  ),
-                ),
-                Container(
-                  color: Colors.grey[200],
-                  padding: EdgeInsets.all(15),
-                  margin: EdgeInsets.all(20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ProfilePage()),
-                          );
-                        },
-                        child: Container(
-                          //width: MediaQuery.of(context).size.width / 4.4,
-                          child: Column(
-                            children: <Widget>[
-                              Icon(
-                                Icons.account_box,
-                                color: Colors.black38,
-                              ),
-                              SizedBox(
-                                height: 3,
-                              ),
-                              Text(
-                                "Profile",
-                                style: TextStyle(color: Colors.black38),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => OrderPage()),
-                          );
-                        },
-                        child: Container(
-                          //width: MediaQuery.of(context).size.width / 4.4,
-                          child: Column(
-                            children: <Widget>[
-                              Icon(
-                                Icons.list,
-                                color: Colors.black38,
-                              ),
-                              SizedBox(
-                                height: 3,
-                              ),
-                              Text(
-                                "Orders",
-                                style: TextStyle(color: Colors.black38),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => CartPage()),
-                          );
-                        },
-                        child: Container(
-                          //width: MediaQuery.of(context).size.width / 4.5,
-                          child: Column(
-                            children: <Widget>[
-                              Icon(
-                                Icons.shopping_cart,
-                                color: Colors.black38,
-                              ),
-                              SizedBox(
-                                height: 3,
-                              ),
-                              Text(
-                                "Cart",
-                                style: TextStyle(color: Colors.black38),
-                              )
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                new ListTile(
-                    leading: new Icon(Icons.home),
-                    title: new Text('Home'),
-                    onTap: () => {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => NewPage()),
-                          )
-                        }),
-                new ListTile(
-                    leading: new Icon(Icons.category),
-                    title: new Text('Category'),
-                    onTap: () => {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => CategoryPage()),
-                          )
-                        }),
-                new ListTile(
-                    leading: new Icon(Icons.favorite),
-                    title: new Text('Favourites'),
-                    onTap: () => {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => FavouritePage()),
-                          )
-                        }),
-                new ListTile(
-                    leading: new Icon(Icons.notifications),
-                    title: new Text('Notifications'),
-                    onTap: () => {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => NotifyPage()),
-                          )
-                        }),
-                Divider(color: Colors.grey),
-                new ListTile(
-                  leading: new Icon(Icons.security),
-                  title: new Text('Terms and Condition'),
-                  onTap: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => TnCPage()),
-                        )
-                      },
-                ),
-                new ListTile(
-                  leading: new Icon(Icons.settings_power),
-                  title: new Text('Logout'),
-                  onTap: () => {},
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
     return Scaffold(
-      drawer: drawer,
       appBar: AppBar(
         //backgroundColor: Theme.of(context).secondaryHeaderColor,
         backgroundColor: Colors.white,
@@ -300,16 +87,7 @@ class DetailsPageState extends State<DetailsPage>
                 Container(
                   child: Row(
                     children: <Widget>[
-                      Container(
-                          margin: EdgeInsets.only(right: 5),
-                          width: 30,
-                          child: Image.asset('assets/logo.png')),
-                      Text("E-commerce",
-                          style: TextStyle(
-                              color: subheader,
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold)),
-                      Text(" App",
+                      Text("Product details",
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.bold)),
                     ],
@@ -419,7 +197,7 @@ class DetailsPageState extends State<DetailsPage>
                                     ),
                                     child: GestureDetector(
                                       onTap: () {
-                                        viewImage(_current);
+                                        //viewImage(_current);
                                       },
                                       child: Image.asset(
                                         imgUrl,
@@ -432,63 +210,6 @@ class DetailsPageState extends State<DetailsPage>
                             }).toList(),
                           ),
                         )),
-                    // Container(
-                    //   margin: EdgeInsets.only(top: 130),
-                    //   child: Row(
-                    //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //       children: <Widget>[
-                    //         Container(
-                    //           margin: EdgeInsets.only(left: 10),
-                    //           width: 50,
-                    //           //color: mainheader,
-                    //           decoration: BoxDecoration(
-                    //               borderRadius:
-                    //                   BorderRadius.all(Radius.circular(5.0)),
-                    //               color: mainheader.withOpacity(0.5),
-                    //               border: Border.all(
-                    //                   width: 0.2, color: Colors.grey)),
-                    //           child: GestureDetector(
-                    //             onTap: () {
-                    //               goToPrevious();
-                    //             },
-                    //             child: Container(
-                    //               padding: EdgeInsets.all(10),
-                    //               //onPressed: goToPrevious,
-                    //               child: Icon(
-                    //                 Icons.chevron_left,
-                    //                 color: Colors.white,
-                    //               ),
-                    //               //child: Text("<", style: TextStyle(color: Colors.white, fontSize: 20),),
-                    //             ),
-                    //           ),
-                    //         ),
-                    //         Container(
-                    //           margin: EdgeInsets.only(right: 10),
-                    //           width: 50,
-                    //           //color: mainheader,
-                    //           decoration: BoxDecoration(
-                    //               borderRadius:
-                    //                   BorderRadius.all(Radius.circular(5.0)),
-                    //               color: mainheader.withOpacity(0.5),
-                    //               border: Border.all(
-                    //                   width: 0.2, color: Colors.grey)),
-                    //           child: GestureDetector(
-                    //             onTap: () {
-                    //               goToNext();
-                    //             },
-                    //             child: Container(
-                    //               padding: EdgeInsets.all(10),
-                    //               //onPressed: goToPrevious,
-                    //               child: Icon(
-                    //                 Icons.chevron_right,
-                    //                 color: Colors.white,
-                    //               ),
-                    //               //child: Text("<", style: TextStyle(color: Colors.white, fontSize: 20),),
-                    //             ),
-                    //           ),
-                    //         ),
-                    //       ]),
-                    // ),
                   ],
                 ),
                 SizedBox(
@@ -665,7 +386,7 @@ class DetailsPageState extends State<DetailsPage>
                                   Container(
                                     color: Colors.white,
                                     child: Icon(
-                                      Icons.add,
+                                      Icons.remove,
                                       color: Colors.grey,
                                     ),
                                   ),
@@ -682,10 +403,10 @@ class DetailsPageState extends State<DetailsPage>
                                   Container(
                                     color: Colors.white,
                                     child: Icon(
-                                      Icons.remove,
+                                      Icons.add,
                                       color: Colors.grey,
                                     ),
-                                  )
+                                  ),
                                 ],
                               )),
                         ],
@@ -693,20 +414,28 @@ class DetailsPageState extends State<DetailsPage>
                       Container(
                         child: Row(
                           children: <Widget>[
-                            Container(
-                                margin: EdgeInsets.all(5),
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(5.0)),
-                                    color: mainheader,
-                                    border: Border.all(
-                                        width: 0.2, color: Colors.grey)),
-                                child: Text(
-                                  "Add to cart",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 12),
-                                )),
+                            GestureDetector(
+                              onTap: (){
+                                setState(() {
+                                  num++;
+                                  tk += 150.0;
+                                });
+                              },
+                              child: Container(
+                                  margin: EdgeInsets.all(5),
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5.0)),
+                                      color: mainheader,
+                                      border: Border.all(
+                                          width: 0.2, color: Colors.grey)),
+                                  child: Text(
+                                    "Add to cart",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 12),
+                                  )),
+                            ),
                             Container(
                               //padding: EdgeInsets.all(5),
                               child: Row(
@@ -1118,138 +847,136 @@ class DetailsPageState extends State<DetailsPage>
                               height: 240,
                               child: new ListView.builder(
                                 scrollDirection: Axis.horizontal,
-                                itemBuilder: (BuildContext context,
-                                        int index) =>
-                                    new Container(
-                                      //color: Colors.white,
-                                      margin: EdgeInsets.all(5),
-                                      padding: EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(1.0)),
-                                          color: Colors.white,
-                                          border: Border.all(
-                                              width: 0.2, color: Colors.grey)),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    DetailsPage()),
-                                          );
-                                        },
-                                        child: Container(
-                                          //padding: EdgeInsets.only(left: 20),
-                                          width: 100,
-                                          child: Column(
-                                            children: <Widget>[
-                                              Container(
-                                                  height: 100,
-                                                  child: Image.asset(
-                                                      'assets/shirt.jpg')),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Text(
-                                                "Product Name",
-                                                style: TextStyle(
-                                                    fontSize: 14,
-                                                    color: Colors.black38),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              Container(
-                                                margin: EdgeInsets.only(
-                                                    left: 5, top: 5),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: <Widget>[
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: golden,
-                                                      size: 17,
-                                                    ),
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: golden,
-                                                      size: 17,
-                                                    ),
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: golden,
-                                                      size: 17,
-                                                    ),
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: golden,
-                                                      size: 17,
-                                                    ),
-                                                    Icon(
-                                                      Icons.star,
-                                                      color: golden,
-                                                      size: 17,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                margin:
-                                                    EdgeInsets.only(top: 10),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: <Widget>[
-                                                    Row(
-                                                      children: <Widget>[
-                                                        Icon(
-                                                          Icons.attach_money,
-                                                          color: Colors.black54,
-                                                          size: 16,
-                                                        ),
-                                                        Text(
-                                                          "20.25",
-                                                          style: TextStyle(
-                                                              fontSize: 13,
-                                                              color: Colors
-                                                                  .black54),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                margin:
-                                                    EdgeInsets.only(top: 10),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: <Widget>[
-                                                    Row(
-                                                      children: <Widget>[
-                                                        Icon(
-                                                          Icons.attach_money,
-                                                          color: Colors.black54,
-                                                          size: 16,
-                                                        ),
-                                                        Text(
-                                                          "20.25",
-                                                          style: TextStyle(
-                                                              fontSize: 13,
-                                                              color: Colors
-                                                                  .black54),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              )
-                                            ],
+                                itemBuilder:
+                                    (BuildContext context, int index) =>
+                                        new Container(
+                                  //color: Colors.white,
+                                  margin: EdgeInsets.all(5),
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(1.0)),
+                                      color: Colors.white,
+                                      border: Border.all(
+                                          width: 0.2, color: Colors.grey)),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                DetailsPage()),
+                                      );
+                                    },
+                                    child: Container(
+                                      //padding: EdgeInsets.only(left: 20),
+                                      width: 100,
+                                      child: Column(
+                                        children: <Widget>[
+                                          Container(
+                                              height: 100,
+                                              child: Image.asset(
+                                                  'assets/shirt.jpg')),
+                                          SizedBox(
+                                            height: 10,
                                           ),
-                                        ),
+                                          Text(
+                                            "Product Name",
+                                            style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.black38),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(
+                                                left: 5, top: 5),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                Icon(
+                                                  Icons.star,
+                                                  color: golden,
+                                                  size: 17,
+                                                ),
+                                                Icon(
+                                                  Icons.star,
+                                                  color: golden,
+                                                  size: 17,
+                                                ),
+                                                Icon(
+                                                  Icons.star,
+                                                  color: golden,
+                                                  size: 17,
+                                                ),
+                                                Icon(
+                                                  Icons.star,
+                                                  color: golden,
+                                                  size: 17,
+                                                ),
+                                                Icon(
+                                                  Icons.star,
+                                                  color: golden,
+                                                  size: 17,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(top: 10),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                Row(
+                                                  children: <Widget>[
+                                                    Icon(
+                                                      Icons.attach_money,
+                                                      color: Colors.black54,
+                                                      size: 16,
+                                                    ),
+                                                    Text(
+                                                      "20.25",
+                                                      style: TextStyle(
+                                                          fontSize: 13,
+                                                          color:
+                                                              Colors.black54),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(top: 10),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                Row(
+                                                  children: <Widget>[
+                                                    Icon(
+                                                      Icons.attach_money,
+                                                      color: Colors.black54,
+                                                      size: 16,
+                                                    ),
+                                                    Text(
+                                                      "20.25",
+                                                      style: TextStyle(
+                                                          fontSize: 13,
+                                                          color:
+                                                              Colors.black54),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        ],
                                       ),
                                     ),
+                                  ),
+                                ),
                                 itemCount: 20,
                               ),
                             ),
@@ -1324,150 +1051,147 @@ class DetailsPageState extends State<DetailsPage>
                               height: 250,
                               child: new ListView.builder(
                                 //scrollDirection: Axis.horizontal,
-                                itemBuilder: (BuildContext context,
-                                        int index) =>
-                                    new Container(
-                                      //color: Colors.white,
-                                      margin: EdgeInsets.all(5),
-                                      padding: EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(1.0)),
-                                          color: Colors.white,
-                                          border: Border.all(
-                                              width: 0.2, color: Colors.grey)),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    DetailsPage()),
-                                          );
-                                        },
-                                        child: Container(
-                                          //padding: EdgeInsets.only(left: 20),
-                                          width: 100,
-                                          child: Center(
-                                            child: Row(
-                                              children: <Widget>[
-                                                Container(
-                                                  //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                                                  padding: EdgeInsets.all(1.0),
-                                                  child: CircleAvatar(
-                                                    radius: 25.0,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    backgroundImage: AssetImage(
-                                                        'assets/logo.png'),
-                                                  ),
-                                                  decoration: new BoxDecoration(
-                                                    color: Colors
-                                                        .grey, // border color
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 10,
-                                                ),
-                                                Expanded(
-                                                  child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
+                                itemBuilder:
+                                    (BuildContext context, int index) =>
+                                        new Container(
+                                  //color: Colors.white,
+                                  margin: EdgeInsets.all(5),
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(1.0)),
+                                      color: Colors.white,
+                                      border: Border.all(
+                                          width: 0.2, color: Colors.grey)),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                DetailsPage()),
+                                      );
+                                    },
+                                    child: Container(
+                                      //padding: EdgeInsets.only(left: 20),
+                                      width: 100,
+                                      child: Center(
+                                        child: Row(
+                                          children: <Widget>[
+                                            Container(
+                                              //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                                              padding: EdgeInsets.all(1.0),
+                                              child: CircleAvatar(
+                                                radius: 25.0,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                backgroundImage: AssetImage(
+                                                    'assets/logo.png'),
+                                              ),
+                                              decoration: new BoxDecoration(
+                                                color:
+                                                    Colors.grey, // border color
+                                                shape: BoxShape.circle,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: <Widget>[
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: <Widget>[
-                                                          Expanded(
-                                                            child: Text(
-                                                              "John Smith",
-                                                              overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                              style: TextStyle(
-                                                                  fontSize: 13,
-                                                                  color: Colors
-                                                                      .black38,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold),
-                                                            ),
-                                                          ),
-                                                          Text(
-                                                            "July 14, 2019",
-                                                            style: TextStyle(
-                                                              fontSize: 11,
-                                                              color:
-                                                                  Colors.grey,
-                                                            ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Container(
-                                                        margin: EdgeInsets.only(
-                                                            top: 5),
-                                                        child: Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          children: <Widget>[
-                                                            Icon(
-                                                              Icons.star,
-                                                              color: golden,
-                                                              size: 14,
-                                                            ),
-                                                            Icon(
-                                                              Icons.star,
-                                                              color: golden,
-                                                              size: 14,
-                                                            ),
-                                                            Icon(
-                                                              Icons.star,
-                                                              color: golden,
-                                                              size: 14,
-                                                            ),
-                                                            Icon(
-                                                              Icons.star_half,
-                                                              color: golden,
-                                                              size: 14,
-                                                            ),
-                                                            Icon(
-                                                              Icons.star_border,
-                                                              color: golden,
-                                                              size: 14,
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        margin: EdgeInsets.only(
-                                                            top: 5),
+                                                      Expanded(
                                                         child: Text(
-                                                          "this is a very good product. very useful in reasonable price.",
+                                                          "John Smith",
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
                                                           style: TextStyle(
                                                               fontSize: 13,
                                                               color: Colors
-                                                                  .black38),
-                                                          textAlign:
-                                                              TextAlign.justify,
-                                                          overflow: TextOverflow
-                                                              .ellipsis,
+                                                                  .black38,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
                                                         ),
+                                                      ),
+                                                      Text(
+                                                        "July 14, 2019",
+                                                        style: TextStyle(
+                                                          fontSize: 11,
+                                                          color: Colors.grey,
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
                                                       ),
                                                     ],
                                                   ),
-                                                ),
-                                              ],
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.only(top: 5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: <Widget>[
+                                                        Icon(
+                                                          Icons.star,
+                                                          color: golden,
+                                                          size: 14,
+                                                        ),
+                                                        Icon(
+                                                          Icons.star,
+                                                          color: golden,
+                                                          size: 14,
+                                                        ),
+                                                        Icon(
+                                                          Icons.star,
+                                                          color: golden,
+                                                          size: 14,
+                                                        ),
+                                                        Icon(
+                                                          Icons.star_half,
+                                                          color: golden,
+                                                          size: 14,
+                                                        ),
+                                                        Icon(
+                                                          Icons.star_border,
+                                                          color: golden,
+                                                          size: 14,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    margin:
+                                                        EdgeInsets.only(top: 5),
+                                                    child: Text(
+                                                      "this is a very good product. very useful in reasonable price.",
+                                                      style: TextStyle(
+                                                          fontSize: 13,
+                                                          color:
+                                                              Colors.black38),
+                                                      textAlign:
+                                                          TextAlign.justify,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
                                       ),
                                     ),
+                                  ),
+                                ),
                                 itemCount: 20,
                               ),
                             ),
@@ -1639,245 +1363,59 @@ class DetailsPageState extends State<DetailsPage>
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar: Container(
+        height: num == 0 && tk == 0.0 ? 0 : 50,
+        width: MediaQuery.of(context).size.width,
+        color: mainheader,
         child: Container(
-          color: Colors.white,
-          width: MediaQuery.of(context).size.width,
-          height: 60,
+          margin: EdgeInsets.only(right: 20, left: 20),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => NewPage()),
-                  );
-                },
-                child: Container(
-                    width: MediaQuery.of(context).size.width / 4.5,
-                    //color: Colors.black,
-                    padding: EdgeInsets.all(15),
-                    child: Column(
+              Container(
+                  padding: EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Text("$num",
+                      style: TextStyle(color: Colors.black, fontSize: 13))),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CheckoutPage()));
+                  },
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(
-                          Icons.home,
-                          color: Colors.grey,
-                          size: 30,
-                        )
+                        Text("Checkout",
+                            style: TextStyle(color: Colors.white),
+                            textAlign: TextAlign.center),
+                        Icon(Icons.keyboard_arrow_right,
+                            size: 15, color: Colors.white),
                       ],
-                    )),
+                    ),
+                  ),
+                ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SearchPage()),
-                  );
-                },
-                child: Container(
-                    width: MediaQuery.of(context).size.width / 4.5,
-                    //color: Colors.black,
-                    padding: EdgeInsets.all(15),
-                    child: Column(
-                      children: <Widget>[
-                        Icon(
-                          Icons.search,
-                          color: Colors.grey,
-                          size: 30,
-                        )
-                      ],
-                    )),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()),
-                  );
-                },
-                child: Container(
-                    width: MediaQuery.of(context).size.width / 4.5,
-                    //color: Colors.black,
-                    padding: EdgeInsets.all(15),
-                    child: Column(
-                      children: <Widget>[
-                        Icon(
-                          Icons.account_circle,
-                          color: Colors.grey,
-                          size: 30,
-                        )
-                      ],
-                    )),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CartPage()),
-                  );
-                },
-                child: Container(
-                    width: MediaQuery.of(context).size.width / 4.5,
-                    //color: Colors.black,
-                    padding: EdgeInsets.all(15),
-                    child: Column(
-                      children: <Widget>[
-                        Stack(children: <Widget>[
-                          Icon(
-                            Icons.shopping_cart,
-                            color: Colors.grey,
-                            size: 30,
-                          ),
-                          Container(
-                              //color: mainheader,
-                              padding: EdgeInsets.all(3),
-                              margin: EdgeInsets.only(left: 18),
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5.0)),
-                                  color: mainheader,
-                                  border: Border.all(
-                                      width: 0.2, color: Colors.grey)),
-                              child: Text(
-                                "20",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 11),
-                              ))
-                        ])
-                      ],
-                    )),
-              ),
+              Container(
+                  child: Row(
+                children: <Widget>[
+                  Icon(Icons.attach_money, size: 15, color: Colors.white),
+                  Text(
+                    "$tk",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ))
             ],
           ),
         ),
       ),
     );
-  }
-
-  void bottomSheetMenu() {
-    showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc) {
-          return Container(
-            child: new Wrap(
-              children: <Widget>[
-                new ListTile(
-                    leading: new Icon(Icons.music_note),
-                    title: new Text('Music'),
-                    onTap: () => {}),
-                new ListTile(
-                  leading: new Icon(Icons.videocam),
-                  title: new Text('Video'),
-                  onTap: () => {},
-                ),
-              ],
-            ),
-          );
-        });
-  }
-
-  void viewImage(int index) {
-    // showDialog<String>(
-    //   context: context,
-    //   barrierDismissible:
-    //       true, // dialog is dismissible with a tap on the barrier
-    //   builder: (BuildContext context) {
-    //     return Theme(
-    //       data: Theme.of(context)
-    //           .copyWith(dialogBackgroundColor: Colors.transparent),
-    //       child: AlertDialog(
-    //         //contentPadding: EdgeInsets.zero,
-    //         // title: new Text(
-    //         //   proImage + '$photo',
-    //         //   style: TextStyle(color: Colors.white),
-    //         // ),
-    //         content: Container(
-    //           padding: EdgeInsets.all(5.0),
-    //           color: Colors.transparent,
-    //           child: PhotoView(
-    //             imageProvider: AssetImage('assets/shoe.png'),
-    //             backgroundDecoration: BoxDecoration(
-    //                 gradient: LinearGradient(
-    //               colors: <Color>[Colors.transparent, Colors.transparent],
-    //               stops: [0.1, 1.0],
-    //             )),
-    //             minScale: PhotoViewComputedScale.contained * 1.2,
-    //             maxScale: 4.0,
-    //           ),
-    //           // child: CarouselSlider(
-    //           //   //height: 400.0,
-    //           //   initialPage: index,
-    //           //   enlargeCenterPage: true,
-    //           //   autoPlay: false,
-    //           //   reverse: false,
-    //           //   enableInfiniteScroll: true,
-    //           //   // autoPlayInterval: Duration(seconds: 2),
-    //           //   // autoPlayAnimationDuration:
-    //           //   //     Duration(milliseconds: 2000),
-    //           //   // pauseAutoPlayOnTouch: Duration(seconds: 10),
-    //           //   scrollDirection: Axis.horizontal,
-    //           //   onPageChanged: (index) {
-    //           //     setState(() {
-    //           //       _current = index;
-    //           //     });
-    //           //   },
-    //           //   items: imgList.map((imgUrl) {
-    //           //     return Builder(
-    //           //       builder: (BuildContext context) {
-    //           //         return Container(
-    //           //           width: MediaQuery.of(context).size.width,
-    //           //           margin: EdgeInsets.symmetric(horizontal: 10.0),
-    //           //           decoration: BoxDecoration(
-    //           //             color: Colors.white,
-    //           //           ),
-    //           //           child: Image.asset(
-    //           //             imgUrl,
-    //           //             fit: BoxFit.contain,
-    //           //           ),
-    //           //         );
-    //           //       },
-    //           //     );
-    //           //   }).toList(),
-    //           // ),
-    //         ),
-    //         actions: <Widget>[
-    //           Container(
-    //             //color: Colors.white,
-    //             decoration: BoxDecoration(
-    //                 borderRadius: BorderRadius.all(Radius.circular(5.0)),
-    //                 color: Colors.white,
-    //                 border: Border.all(width: 0.2, color: Colors.grey)),
-    //             child: new FlatButton(
-    //               child: new Text(
-    //                 "Close",
-    //                 style: TextStyle(color: mainheader),
-    //               ),
-    //               onPressed: () {
-    //                 Navigator.of(context).pop();
-    //               },
-    //             ),
-    //           )
-    //         ],
-    //       ),
-    //     );
-    //   },
-    // );
-    Navigator.of(context).push(new MaterialPageRoute<Null>(
-        builder: (BuildContext context) {
-          return new SomeDialog(id: index);
-        },
-        fullscreenDialog: true));
-  }
-
-  goToPrevious() {
-    carouselSlider.previousPage(
-        duration: Duration(milliseconds: 300), curve: Curves.ease);
-  }
-
-  goToNext() {
-    carouselSlider.nextPage(
-        duration: Duration(milliseconds: 300), curve: Curves.decelerate);
   }
 }
 
