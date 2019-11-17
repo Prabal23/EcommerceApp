@@ -1,16 +1,16 @@
 import 'dart:ui' as prefix0;
 
-import 'package:ecommerce_app/MainScreens/AllCartPage/allCartPage.dart';
 import 'package:ecommerce_app/MainScreens/BottomNavigation/CartPage/cartPage.dart';
 import 'package:ecommerce_app/MainScreens/BottomNavigation/ProductPage/productPage.dart';
 import 'package:ecommerce_app/MainScreens/BottomNavigation/ProfilePage/profilePage.dart';
 import 'package:ecommerce_app/MainScreens/BottomNavigation/SearchPage/searchPage.dart';
-import 'package:ecommerce_app/MainScreens/CategoryPage/category.dart';
-import 'package:ecommerce_app/MainScreens/FavouritePage/favourite.dart';
 import 'package:ecommerce_app/MainScreens/MyProfilePage/myProfilePage.dart';
-import 'package:ecommerce_app/MainScreens/NotificationPage/notifications.dart';
-import 'package:ecommerce_app/MainScreens/OrderPage/orders.dart';
-import 'package:ecommerce_app/MainScreens/TnCPage/tnc.dart';
+import 'package:ecommerce_app/MainScreens/NavigationDrawerPages/AllCartPage/allCartPage.dart';
+import 'package:ecommerce_app/MainScreens/NavigationDrawerPages/CategoryPage/category.dart';
+import 'package:ecommerce_app/MainScreens/NavigationDrawerPages/FavouritePage/favourite.dart';
+import 'package:ecommerce_app/MainScreens/NavigationDrawerPages/NotificationPage/notifications.dart';
+import 'package:ecommerce_app/MainScreens/NavigationDrawerPages/OrderPage/orders.dart';
+import 'package:ecommerce_app/MainScreens/NavigationDrawerPages/TnCPage/tnc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';

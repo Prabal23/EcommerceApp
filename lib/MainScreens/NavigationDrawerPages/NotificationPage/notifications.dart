@@ -1,20 +1,20 @@
 import 'dart:ui' as prefix0;
 
-import 'package:ecommerce_app/MainScreens/AllProductPage/allProductPage.dart';
+import 'package:ecommerce_app/MainScreens/NotifyDetailsPage/notifydet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
+import 'package:carousel_pro/carousel_pro.dart';
 
-import '../../main.dart';
+import '../../../main.dart';
 
-class CategoryPage extends StatefulWidget {
+class NotifyPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return CategoryPageState();
+    return NotifyPageState();
   }
 }
 
-class CategoryPageState extends State<CategoryPage>
+class NotifyPageState extends State<NotifyPage>
     with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
@@ -39,12 +39,37 @@ class CategoryPageState extends State<CategoryPage>
                 Container(
                   child: Row(
                     children: <Widget>[
-                      Text("Category",
+                      Text("Notification",
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
+                // GestureDetector(
+                //   onTap: () {
+                //     bottomSheetMenu();
+                //   },
+                //   child: Container(
+                //       padding: EdgeInsets.all(5),
+                //       //color: mainheader,
+                //       decoration: BoxDecoration(
+                //         borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                //         color: mainheader,
+                //         boxShadow: <BoxShadow>[
+                //           BoxShadow(
+                //             color: Colors.grey,
+                //             //offset: Offset(1.0, 6.0),
+                //             blurRadius: 2.0,
+                //           ),
+                //         ],
+                //       ),
+                //       child: Container(
+                //           child: Icon(
+                //         Icons.menu,
+                //         color: Colors.white,
+                //         size: 20,
+                //       ))),
+                // ),
               ],
             ),
           ),
@@ -62,7 +87,7 @@ class CategoryPageState extends State<CategoryPage>
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AllProductPage()),
+                  MaterialPageRoute(builder: (context) => NotifyDetPage()),
                 );
               },
               child: Container(
@@ -82,44 +107,38 @@ class CategoryPageState extends State<CategoryPage>
                           children: <Widget>[
                             Container(
                                 margin: EdgeInsets.only(right: 10, left: 0),
-                                height: 50,
-                                child: Image.asset('assets/tshirt.png')),
+                                height: 30,
+                                width: 30,
+                                child: Image.asset('assets/logo.png')),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Text(
-                                    "Category Name",
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 17,
-                                      color: Colors.black87,
+                                  // Text(
+                                  //   "Title",
+                                  //   overflow: TextOverflow.ellipsis,
+                                  //   style: TextStyle(
+                                  //       fontSize: 17,
+                                  //       color: Colors.black87,
+                                  //       fontWeight: FontWeight.bold),
+                                  //   textAlign: TextAlign.start,
+                                  // ),
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5),
+                                    child: Text(
+                                      "Message notify notification body text",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                          fontSize: 14, color: Colors.black),
                                     ),
-                                    textAlign: TextAlign.start,
                                   ),
                                   Container(
                                     margin: EdgeInsets.only(top: 5),
-                                    child: Row(
-                                      children: <Widget>[
-                                        Row(
-                                          children: <Widget>[
-                                            Icon(
-                                              Icons.shopping_basket,
-                                              color: Colors.grey,
-                                              size: 17,
-                                            ),
-                                            SizedBox(
-                                              width: 3,
-                                            ),
-                                            Text(
-                                              "20+ Items",
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.grey),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                    child: Text(
+                                      "2 days ago",
+                                      style: TextStyle(
+                                          fontSize: 11, color: Colors.grey),
                                     ),
                                   )
                                 ],
@@ -129,13 +148,12 @@ class CategoryPageState extends State<CategoryPage>
                         ),
                       ),
                       Container(
-                          child: Container(
                         color: Colors.white,
                         child: Icon(
                           Icons.chevron_right,
                           color: Colors.grey,
                         ),
-                      )),
+                      ),
                     ],
                   ),
                 ),

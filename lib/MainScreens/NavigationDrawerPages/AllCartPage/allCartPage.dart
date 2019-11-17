@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:carousel_pro/carousel_pro.dart';
 
-import '../../main.dart';
+import '../../../main.dart';
 
 class AllCartPage extends StatefulWidget {
   @override

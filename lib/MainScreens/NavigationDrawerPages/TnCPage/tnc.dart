@@ -3,7 +3,7 @@ import 'dart:ui' as prefix0;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
+import '../../../main.dart';
 
 class TnCPage extends StatefulWidget {
   @override
@@ -27,7 +27,7 @@ class TnCPageState extends State<TnCPage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.white,
         title: Center(
           child: Container(

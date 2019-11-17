@@ -4,7 +4,7 @@ import 'package:ecommerce_app/MainScreens/ProductDetailsPage/details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
+import '../../../main.dart';
 
 class FavouritePage extends StatefulWidget {
   @override

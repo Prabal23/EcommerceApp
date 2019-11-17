@@ -1,20 +1,20 @@
 import 'dart:ui' as prefix0;
 
-import 'package:ecommerce_app/MainScreens/OrderListPage/orderlist.dart';
+import 'package:ecommerce_app/MainScreens/AllProductPage/allProductPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import '../../main.dart';
+import '../../../main.dart';
 
-class OrderPage extends StatefulWidget {
+class CategoryPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return OrderPageState();
+    return CategoryPageState();
   }
 }
 
-class OrderPageState extends State<OrderPage>
+class CategoryPageState extends State<CategoryPage>
     with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
@@ -39,7 +39,7 @@ class OrderPageState extends State<OrderPage>
                 Container(
                   child: Row(
                     children: <Widget>[
-                      Text("Order list",
+                      Text("Category",
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.bold)),
                     ],
@@ -62,7 +62,7 @@ class OrderPageState extends State<OrderPage>
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => OrderListPage()),
+                  MaterialPageRoute(builder: (context) => AllProductPage()),
                 );
               },
               child: Container(
@@ -80,16 +80,16 @@ class OrderPageState extends State<OrderPage>
                         // color: Colors.red,
                         child: Row(
                           children: <Widget>[
-                            // Container(
-                            //     margin: EdgeInsets.only(right: 10, left: 0),
-                            //     height: 50,
-                            //     child: Image.asset('assets/tshirt.png')),
+                            Container(
+                                margin: EdgeInsets.only(right: 10, left: 0),
+                                height: 50,
+                                child: Image.asset('assets/tshirt.png')),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    "Date : 13/07/2019",
+                                    "Category Name",
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       fontSize: 17,
@@ -112,35 +112,10 @@ class OrderPageState extends State<OrderPage>
                                               width: 3,
                                             ),
                                             Text(
-                                              "4 Items",
+                                              "20+ Items",
                                               style: TextStyle(
                                                   fontSize: 14,
                                                   color: Colors.grey),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(top: 5),
-                                    child: Row(
-                                      children: <Widget>[
-                                        Row(
-                                          children: <Widget>[
-                                            Icon(
-                                              Icons.attach_money,
-                                              color: mainheader,
-                                              size: 18,
-                                            ),
-                                            SizedBox(
-                                              width: 3,
-                                            ),
-                                            Text(
-                                              "300.20",
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: mainheader),
                                             ),
                                           ],
                                         ),
