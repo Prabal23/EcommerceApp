@@ -4,7 +4,6 @@ import 'package:ecommerce_app/MainScreens/CheckoutPage/checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../main.dart';
@@ -50,11 +49,6 @@ class DetailsPageState extends State<DetailsPage>
   int _rating = 0;
 
   void rate(int rating) {
-    //Other actions based on rating such as api calls.
-    setState(() {
-      _rating = rating;
-    });
-
     if (rating == 1) {
       _ratingStatus = "Poor";
     }

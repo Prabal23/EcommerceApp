@@ -3,7 +3,6 @@ import 'dart:ui' as prefix0;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:intl/intl.dart';
 
 import '../../main.dart';
@@ -44,17 +43,17 @@ class CheckoutPageState extends State<CheckoutPage>
     super.initState();
   }
 
-  void _getDate() {
-    final DateTime now = DateTime.now();
-    final String formattedDateTime1 = _formatDateTime1(now);
-    setState(() {
-      runningdate = formattedDateTime1;
-    });
-  }
+  // void _getDate() {
+  //   final DateTime now = DateTime.now();
+  //   final String formattedDateTime1 = _formatDateTime1(now);
+  //   setState(() {
+  //     runningdate = formattedDateTime1;
+  //   });
+  // }
 
-  String _formatDateTime1(DateTime dateTime) {
-    return DateFormat('dd-MM-yyyy').format(dateTime);
-  }
+  // String _formatDateTime1(DateTime dateTime) {
+  //   return DateFormat('dd-MM-yyyy').format(dateTime);
+  // }
 
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(

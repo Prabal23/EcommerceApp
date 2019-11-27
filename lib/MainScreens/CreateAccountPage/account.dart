@@ -32,17 +32,6 @@ class AccountPageState extends State<AccountPage>
   Future<File> fileImage;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  pickImagefromGallery(ImageSource src) {
-    setState(() {
-      fileImage = ImagePicker.pickImage(source: src);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

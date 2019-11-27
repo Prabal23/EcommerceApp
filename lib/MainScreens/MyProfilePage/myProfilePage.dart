@@ -5,7 +5,6 @@ import 'package:ecommerce_app/Forms/EditProfileForm/editProfileForm.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:intl/intl.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../main.dart';
